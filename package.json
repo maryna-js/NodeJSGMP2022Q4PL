@@ -1,0 +1,23 @@
+{
+  "name": "nodejsgmp2022q4pl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "task1": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maryna-js/NodeJSGMP2022Q4PL.git"
+  },
+  "author": "Maryna Rastargueva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maryna-js/NodeJSGMP2022Q4PL/issues"
+  },
+  "homepage": "https://github.com/maryna-js/NodeJSGMP2022Q4PL#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
