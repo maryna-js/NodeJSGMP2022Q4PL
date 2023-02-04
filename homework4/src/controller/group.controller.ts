@@ -7,7 +7,8 @@ import {
     deleteGroupDataById,
     findGroups,
     getGroupDataById,
-    updateGroupData
+    updateGroupData,
+    addUsersToGroupHandler
 } from '../services/group.service';
 
 export const getGroups = async (
@@ -82,3 +83,15 @@ export const deleteGroup = async (
     return res.send('Group successfully deleted');
 };
 
+export const addUsersToGroup = async (req: Request, res: Response, next: NextFunction) => {
+    const  usersIds = req.body.userIds;
+    const id = req.params.id;
+
+    try {
+        await addUsersToGroupHandler(usersIds, id);
+
+        res.status(200).json({ message: 'Users added to group' });
+    } catch (e) {
+        next(e);
+    }
+};

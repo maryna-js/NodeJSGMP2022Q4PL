@@ -1,5 +1,8 @@
+import { Op } from 'sequelize';
 import { Group } from '../models/group.model'
-import { GroupInterface, Permissions } from "../models/schema";
+import { User } from '../models/user'
+import { GroupInterface, Permissions } from '../models/schema';
+import sequelize from '../data-access/database';
 
 export const findGroups = async () => {
     try {
@@ -59,6 +62,25 @@ export const deleteGroupDataById = async (id: string) => {
             },
         );
         return group;
+    } catch (error) {
+        throw new Error();
+    }
+};
+
+export const addUsersToGroupHandler = async (usersIds: string[], id: string) => {
+    try {
+        return await sequelize.transaction(async (t) => {
+            const users = await User.findAll(
+                {
+                    where:
+                        { id: { [Op.in]: usersIds }
+                        },
+                    transaction: t
+                }
+            );
+            const group = await Group.findByPk(id, { transaction: t });
+            await Promise.allSettled(users.map((user) => (user as any).addGroup(group, { transaction: t })));
+        });
     } catch (error) {
         throw new Error();
     }

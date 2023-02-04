@@ -23,5 +23,5 @@ CREATE TABLE Groups (
 
 INSERT INTO Groups (name, permissions) VALUES ('group1', ARRAY['READ','DELETE', 'WRITE']);
 INSERT INTO Groups (name, permissions) VALUES ('group2', ARRAY['READ', 'UPLOAD_FILES']);
-INSERT INTO Groups (name, permissions) VALUES ('group3', ARRAY['READ', 'WRITE', 'DELETE', 'UPLOAD_FILES']);
+INSERT INTO Groups (name, permissions) VALUES ('group3', ARRAY['READ', 'WRITE', 'DELETE']);
 INSERT INTO Groups (name, permissions) VALUES ('group4', ARRAY['READ', 'WRITE', 'DELETE', 'SHARE', 'UPLOAD_FILES']);

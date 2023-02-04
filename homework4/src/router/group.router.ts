@@ -5,7 +5,8 @@ import {
     getGroupById,
     updateGroup,
     createGroup,
-    deleteGroup
+    deleteGroup,
+    addUsersToGroup
 } from '../controller/group.controller';
 
 const groupRouter = Router();
@@ -19,5 +20,7 @@ groupRouter.post('/groups', createGroup);
 groupRouter.put('/groups/:id', updateGroup);
 
 groupRouter.delete('/groups', deleteGroup);
+
+groupRouter.post('/groups/:id/user', addUsersToGroup);
 
 export default groupRouter;
