@@ -13,10 +13,15 @@ export interface UserInterface {
 export class User extends Model {}
 User.init(
     {
+        id: {
+           type: DataTypes.UUID,
+           defaultValue: DataTypes.UUIDV4,
+            primaryKey: true
+        },
         login: DataTypes.STRING,
         password: DataTypes.STRING,
         age: DataTypes.INTEGER,
         isDeleted: DataTypes.INTEGER,
     },
-    {sequelize, modelName: 'user'},
+    {sequelize, tableName: 'user'},
 );

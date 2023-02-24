@@ -22,7 +22,7 @@ export const getUsers = async (
          const usersData = await findUsers();
          res.send({usersData});
     } catch (error: any) {
-        return next(error.message);
+        return next(error);
     }
 };
 
