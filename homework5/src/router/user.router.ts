@@ -8,19 +8,20 @@ import {
     createUser,
     deleteUser,
 } from '../controller/user.controller';
+import logMiddleware from "../middleware/middleware";
 
 const userRouter = Router();
 
-userRouter.get('/users', getUsers);
+userRouter.get('/users', logMiddleware, getUsers);
 
-userRouter.get('/users/:id', getUserById);
+userRouter.get('/users/:id', logMiddleware, getUserById);
 
-userRouter.post('/users', createUser);
+userRouter.post('/users', logMiddleware, createUser);
 
-userRouter.put('/users/:id', editUser);
+userRouter.put('/users/:id', logMiddleware, editUser);
 
-userRouter.delete('/users', deleteUser);
+userRouter.delete('/users', logMiddleware, deleteUser);
 
-userRouter.get('/users', getLimitedUser);
+userRouter.get('/users', logMiddleware, getLimitedUser);
 
 export default userRouter;
