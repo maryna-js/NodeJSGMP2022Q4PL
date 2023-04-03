@@ -9,20 +9,19 @@ import {
     addUsersToGroup
 } from '../controller/group.controller';
 import logMiddleware from "../middleware/middleware"
-import { verifyMiddleware } from '../middleware/token.middleware'
 
 const groupRouter = Router();
 
-groupRouter.get('/groups', logMiddleware, verifyMiddleware, getGroups);
+groupRouter.get('/groups', logMiddleware, getGroups);
 
-groupRouter.get('/groups/:id', logMiddleware, verifyMiddleware, getGroupById);
+groupRouter.get('/groups/:id', logMiddleware, getGroupById);
 
-groupRouter.post('/groups', logMiddleware, verifyMiddleware, createGroup);
+groupRouter.post('/groups', logMiddleware, createGroup);
 
-groupRouter.put('/groups/:id', logMiddleware, verifyMiddleware, updateGroup);
+groupRouter.put('/groups/:id', logMiddleware, updateGroup);
 
-groupRouter.delete('/groups', logMiddleware, verifyMiddleware, deleteGroup);
+groupRouter.delete('/groups', logMiddleware, deleteGroup);
 
-groupRouter.post('/groups/:id/user', verifyMiddleware, addUsersToGroup);
+groupRouter.post('/groups/:id/user', addUsersToGroup);
 
 export default groupRouter;
